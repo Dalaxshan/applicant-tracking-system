@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  
+}
+
+model Applicant {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  skills     String   
+  experience Int      
+  notes      String?  
+  status     String   @default("New")  
+  createdAt  DateTime @default(now())
+}
